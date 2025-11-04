@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InjectionMoulding - National Machinery</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        header img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+
+        .back-button {
+            margin-right: 10px;
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .page-title {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .page-title h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .page-title p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-card {
+            flex: 1 1 calc(33.333% - 40px);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .product-images {
+            display: flex;
+            overflow: hidden;
+            gap: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            height: 200px; /* Ensuring all carousels have the same height */
+        }
+
+        .product-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Initially hide all images */
+        }
+
+        .product-images img.active {
+            display: block; /* Show the active image */
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        .product-details {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .product-details h3 {
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+
+        .product-details p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .add-to-cart {
+            display: block;
+            text-align: center;
+            padding: 10px 15px;
+            background-color: #1e88e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 0 0 10px 10px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .add-to-cart:hover {
+            background-color: #1565c0;
+        }
+
+        .photo-count {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .product-card {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="First Page.html" onclick="window.history.back();">
+        <span class="back-button">&#x2190;</span> <h2>National Machinery</h2> 
+    </a>    
+</header>
+
+<div class="page-title">
+    <h2>Injection Moulding</h2>
+</div>
+
+<div class="product-grid" id="product-grid">
+    <!-- Product 1 -->
+    <div class="product-card">
+        <div class="product-images" id="product1-images">
+            <img src="i1.jpg" alt="Image 1" class="active">
+            <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+        </div>
+        <div class="photo-count" id="product1-photo-count">4 photos</div>
+        <div class="product-details">
+            <h3>Ferromatik 200 ton pet series with 3 nos 48 cavity 3 star preform moulds</h3>
+        </div>
+        <a href="#" class="add-to-cart">ADD TO CART</a>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+        <div class="product-images" id="product2-images">
+            <img src="i2.jpg" alt="Image 1" class="active">
+            <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+        </div>
+        <div class="photo-count" id="product2-photo-count">4 photos</div>
+        <div class="product-details">
+            <h3>Ferromatik Q ACCUPACK servo 280 tons tie bar less</h3>
+        </div>
+        <a href="#" class="add-to-cart">ADD TO CART</a>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+        <div class="product-images" id="product3-images">
+            <img src="i3.jpg" alt="Image 1" class="active">
+            <img src="i4.jpg" alt="Image 2">
+            <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+        </div>
+        <div class="photo-count" id="product3-photo-count">1 photo</div>
+        <div class="product-details">
+            <h3>Ferromatik 660 ton ac drive
+            </h3>
+        </div>
+        <a href="#" class="add-to-cart">ADD TO CART</a>
+    </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+            <div class="product-images" id="product4-images">
+                <img src="i5.jpg" alt="Image 1" class="active">
+                <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+            </div>
+            <div class="photo-count" id="product4-photo-count">2 photos</div>
+            <div class="product-details">
+                <h3>Windsor 350 ton servo</h3>
+            </div>
+            <a href="#" class="add-to-cart">ADD TO CART</a>
+        </div>
+    
+        <!-- Product 5 -->
+        <div class="product-card">
+            <div class="product-images" id="product5-images">
+                <img src="i6.jpg" alt="Image 1" class="active">
+                <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+            </div>
+            <div class="photo-count" id="product5-photo-count">3 photos</div>
+            <div class="product-details">
+                <h3>Toshiba 150 ton</h3>
+            </div>
+            <a href="#" class="add-to-cart">ADD TO CART</a>
+        </div>
+    
+        <!-- Product 6 --> 
+        <div class="product-card">
+            <div class="product-images" id="product6-images">
+                <img src="i7.jpg"  class="active">
+                <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+            </div>
+            <div class="photo-count" id="product6-photo-count">4 photos</div>
+             <div class="product-details">
+                <h3>Windsor Armour 150 ton servo</h3>
+            </div>
+            <a href="#" class="add-to-cart">ADD TO CART</a>
+        </div>
+
+            <!-- Product 4 -->
+    <div class="product-card">
+        <div class="product-images" id="product4-images">
+            <img src="i8.jpg" alt="Image 1" class="active">
+            <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+        </div>
+        <div class="photo-count" id="product4-photo-count">2 photos</div>
+        <div class="product-details">
+            <h3>Windsor Armour 100 ton</h3>
+        </div>
+        <a href="#" class="add-to-cart">ADD TO CART</a>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="product-card">
+        <div class="product-images" id="product5-images">
+            <img src="i9.jpg" alt="Image 1" class="active">
+            <img src="i10.jpg" alt="Image 2">
+            <!-- <img src="b11.jpg" alt="Image 3"> -->
+            <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+        </div>
+        <div class="photo-count" id="product5-photo-count">3 photos</div>
+        <div class="product-details">
+            <h3>Windsor 800 ton 
+            </h3>
+        </div>
+        <a href="#" class="add-to-cart">ADD TO CART</a>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product-card">
+        <div class="product-images" id="product6-images">
+            <img src="i11.jpg" alt="Image 1" class="active">
+            <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+        </div>
+        <div class="photo-count" id="product6-photo-count">4 photos</div>
+        <div class="product-details">
+            <h3>Supermaster 250 ton</h3>
+        </div>
+        <a href="#" class="add-to-cart">ADD TO CART</a>
+    </div>
+
+    <!-- Product 7 -->
+    <div class="product-card">
+        <div class="product-images" id="product7-images">
+            <img src="i12.jpg" alt="Image 1" class="active">
+            <img src="i13.jpg" alt="Image 2">
+            <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+        </div>
+        <div class="photo-count" id="product7-photo-count">2 photos</div>
+        <div class="product-details">
+            <h3>Nigata 100 ton</h3>
+        </div>
+        <a href="#" class="add-to-cart">ADD TO CART</a>
+    </div>
+
+    <!-- Product 8 -->
+    <div class="product-card">
+        <div class="product-images" id="product8-images">
+            <img src="i14.jpg
+            " alt="Image 1" class="active">
+            <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
+        </div>
+        <div class="photo-count" id="product8-photo-count">3 photos</div>
+        <div class="product-details">
+            <h3>Jsw 100 ton</h3>
+        </div>
+        <a href="#" class="add-to-cart">ADD TO CART</a>
+    </div>
+
+    <!-- Product 9 -->
+    <div class="product-card">
+        <div class="product-images" id="product9-images">
+            <!-- <img src="b21.jpg" alt="Image 1" class="active">
+            <img src="b22.jpg" alt="Image 2"> -->
+            <!-- <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button> -->
+        </div>
+        <!-- <div class="photo-count" id="product9-photo-count">2 photos</div> -->
+        <div class="product-details">
+            <!-- <h3>EcoMax 30 lit energy-efficient system</h3> -->
+        </div>
+        <!-- <a href="#" class="add-to-cart">ADD TO CART</a> -->
+    </div>
+    
+</div>
+
+<script>
+    // Dynamically update the number of items
+    const productGrid = document.getElementById('product-grid');
+    const itemCount = document.getElementById('item-count');
+
+    // Update item count based on the number of product cards
+    itemCount.textContent = `${productGrid.children.length} items`;
+
+    // Function to change images in carousel
+    function changeImage(button, direction) {
+        const images = button.parentElement.querySelectorAll('img');
+        let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+        images[currentIndex].classList.remove('active');
+        
+        let newIndex = (currentIndex + direction + images.length) % images.length;
+        images[newIndex].classList.add('active');
+    }
+
+    // Update photo count dynamically for each product based on the number of images
+    const updatePhotoCount = () => {
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            const images = card.querySelectorAll('.product-images img');
+            const photoCount = card.querySelector('.photo-count');
+            photoCount.textContent = `${images.length} photos`;
+        });
+    };
+
+    // Call the function to update photo count on page load
+    updatePhotoCount();
+</script>
+</body>
+</html>
