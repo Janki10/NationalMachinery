@@ -185,7 +185,7 @@
             <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
             <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
         </div>
-        <div class="photo-count" id="product1-photo-count">4 photos</div>
+        <div class="photo-count" id="product1-photo-count">1 photo</div>
         <div class="product-details">
             <h3>Lianxing 80 ton machine Brand new only trial taken 2021 model
                 With 3 MTC toshiba make </h3>
@@ -202,7 +202,7 @@
             <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
             <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
         </div>
-        <div class="photo-count" id="product2-photo-count">4 photos</div>
+        <div class="photo-count" id="product2-photo-count">3 photos</div>
         <div class="product-details">
             <h3>Jasu 160 ton ibm Year 2015</h3>
         </div>
@@ -220,7 +220,7 @@
             <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
             <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
         </div>
-        <div class="photo-count" id="product3-photo-count">1 photo</div>
+        <div class="photo-count" id="product3-photo-count">4 photos</div>
         <div class="product-details">
             <h3>Lianxing ibm 80 servo</h3>
         </div>
@@ -259,13 +259,13 @@
         <!-- Product 6 --> 
         <div class="product-card">
             <div class="product-images" id="product6-images">
-                <img src="ibm13.jpg"  class="active">
+                <img src="ibm13.jpg" alt="Image 1" class="active">
                 <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
-                <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button> -->
+                <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
             </div>
-            <div class="photo-count" id="product6-photo-count">4 photos</div>
+            <div class="photo-count" id="product6-photo-count">1 photo</div>
             <div class="product-details">
-                <h3>Quantum 50 lit heavy-duty industrial blow moulding</h3>
+                <h3>Zhongya ibm 25</h3>
             </div>
             <a href="#" class="add-to-cart">ADD TO CART</a>
         </div>
@@ -273,13 +273,6 @@
 </div>
 
 <script>
-    // Dynamically update the number of items
-    const productGrid = document.getElementById('product-grid');
-    const itemCount = document.getElementById('item-count');
-
-    // Update item count based on the number of product cards
-    itemCount.textContent = `${productGrid.children.length} items`;
-
     // Function to change images in carousel
     function changeImage(button, direction) {
         const images = button.parentElement.querySelectorAll('img');

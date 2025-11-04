@@ -227,13 +227,6 @@
 </div>
 
 <script>
-    // Dynamically update the number of items
-    const productGrid = document.getElementById('product-grid');
-    const itemCount = document.getElementById('item-count');
-
-    // Update item count based on the number of product cards
-    itemCount.textContent = `${productGrid.children.length} items`;
-
     // Function to change images in carousel
     function changeImage(button, direction) {
         const images = button.parentElement.querySelectorAll('img');

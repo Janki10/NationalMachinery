@@ -187,7 +187,7 @@
             <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
             <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
         </div>
-        <div class="photo-count" id="product1-photo-count">5 photos</div>
+        <div class="photo-count" id="product1-photo-count">1 photo</div>
         <div class="product-details">
             <h3>5 head for cmp 2 lit machine</h3>
         </div>
@@ -196,13 +196,6 @@
 </div>
 
 <script>
-    // Dynamically update the number of items
-    const productGrid = document.getElementById('product-grid');
-    const itemCount = document.getElementById('item-count');
-
-    // Update item count based on the number of product cards
-    itemCount.textContent = `${productGrid.children.length} items`;
-
     // Function to change images in carousel
     function changeImage(button, direction) {
         const images = button.parentElement.querySelectorAll('img');

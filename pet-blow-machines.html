@@ -187,7 +187,7 @@
             <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
             <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
         </div>
-        <div class="photo-count" id="product1-photo-count">4 photos</div>
+        <div class="photo-count" id="product1-photo-count">1 photo</div>
         <div class="product-details">
             <h3>SS PET PET PLOW 
                 Year 2015</h3>
@@ -205,36 +205,16 @@
             <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
             <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button>
         </div>
-        <div class="photo-count" id="product2-photo-count">4 photos</div>
+        <div class="photo-count" id="product2-photo-count">2 photos</div>
         <div class="product-details">
             <h3>SS enterprise</h3>
         </div>
         <a href="#" class="add-to-cart">ADD TO CART</a>
     </div>
 
-    <!-- Product 3 -->
-    <div class="product-card">
-        <div class="product-images" id="product3-images">
-            <!-- <img src="e3_1.jpg" alt="Image 1" class="active">
-            <button class="carousel-btn prev" onclick="changeImage(this, -1)">&#10094;</button>
-            <button class="carousel-btn next" onclick="changeImage(this, 1)">&#10095;</button> -->
-        </div>
-        <div class="photo-count" id="product3-photo-count">1 photo</div>
-        <div class="product-details">
-            <!-- <h3>Used Thermoforming line</h3> -->
-        </div>
-        <!-- <a href="#" class="add-to-cart">ADD TO CART</a> -->
-    </div>
 </div>
 
 <script>
-    // Dynamically update the number of items
-    const productGrid = document.getElementById('product-grid');
-    const itemCount = document.getElementById('item-count');
-
-    // Update item count based on the number of product cards
-    itemCount.textContent = `${productGrid.children.length} items`;
-
     // Function to change images in carousel
     function changeImage(button, direction) {
         const images = button.parentElement.querySelectorAll('img');
