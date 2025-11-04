@@ -143,52 +143,8 @@
     <input type="text" id="searchInput" placeholder="Search for products">
 </div>
 
-<div class="product-grid">
-    <a href="extrusion.html" class="product-card">
-        <img src="Extrusion.jpg" alt="Product">
-        <h3>Extrusion</h3>
-        <p>3 items</p>
-    </a>
-    <a href="compression-moulding.html" class="product-card">
-        <img src="Compression Moulding.jpg" alt="Product">
-        <h3>Compression Moulding</h3>
-        <p>1 item</p>
-    </a>
-    <a href="blow-moulding.html" class="product-card">
-        <img src="BlowMoulding.jpg" alt="Product">
-        <h3>Blow Moulding</h3>
-        <p>5 items</p>
-    </a>
-    <a href="injection-moulding.html" class="product-card">
-        <img src="InjectionMoulding.jpg" alt="Product">
-        <h3>Injection Moulding</h3>
-        <p>11 items</p>
-    </a>
-    <a href="moulds.html" class="product-card">
-        <img src="Moulds.jpg" alt="Product">
-        <h3>Moulds</h3>
-        <p>11 items</p>
-    </a>
-    <a href="ancillaries.html" class="product-card">
-        <img src="Ancilliaries.jpg" alt="Product">
-        <h3>Ancillaries</h3>
-        <p>1 item</p>
-    </a>
-    <a href="cnc-machines.html" class="product-card">
-        <img src="cnc.jpg" alt="Product">
-        <h3>CNC Machines</h3>
-        <p>1 item</p>
-    </a>
-    <a href="pet-blow-machines.html" class="product-card">  
-        <img src="PetBlowMachines.jpg" alt="Product">
-        <h3>Pet Blow Machines</h3>
-        <p>2 items</p>
-    </a>
-    <a href="ibm.html" class="product-card">
-        <img src="ibm.jpg" alt="Product">
-        <h3>IBM</h3>
-        <p>6 items</p>
-    </a>
+<div class="product-grid" id="dynamic-categories">
+    <!-- Categories will be loaded dynamically from CMS -->
 </div>
 
 <footer>
@@ -202,18 +158,14 @@
 <a href="https://wa.me/+919969740560" class="whatsapp-button">&#x1F4AC;</a>
 
 <script>
-    // Count the number of product cards
-    const productCards = document.querySelectorAll('.product-card');
-    const catalogInfo = document.querySelector('.catalog-info');
-
-    // Update the catalog-info text with the count
-    catalogInfo.textContent = `${productCards.length} Catalogues`;
+    // Categories are now loaded dynamically via CMS
 
     // Search functionality
     const searchInput = document.getElementById('searchInput');
 
     searchInput.addEventListener('input', () => {
         const query = searchInput.value.toLowerCase();
+        const productCards = document.querySelectorAll('.product-card');
         let visibleCount = 0;
 
         productCards.forEach(card => {
@@ -227,7 +179,10 @@
         });
 
         // Update the catalog count based on search results
-        catalogInfo.textContent = `${visibleCount} Catalogues`;
+        const catalogInfo = document.querySelector('.catalog-info');
+        if (catalogInfo) {
+            catalogInfo.textContent = `${visibleCount} Catalogues`;
+        }
     });
 
     // Show popup only once after 60 seconds
@@ -246,6 +201,27 @@
         }
     }, 60000); // Show prompt after 60 seconds
 
+</script>
+
+<!-- CMS Integration -->
+<script src="cms-data.js"></script>
+<script src="cms-frontend.js"></script>
+<script>
+    // Manual initialization fallback - in case auto-init fails
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            if (typeof CMSFrontend !== 'undefined' && typeof CMS_DATA !== 'undefined') {
+                const grid = document.getElementById('dynamic-categories');
+                if (grid && (!grid.children || grid.children.length === 0)) {
+                    console.log('Manual initialization triggered - grid is empty');
+                    CMS_DATA.init();
+                    CMSFrontend.init();
+                }
+            } else {
+                console.error('CMS scripts not loaded properly. Check browser console for errors.');
+            }
+        }, 200);
+    });
 </script>
 
 </body>
