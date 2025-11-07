@@ -71,7 +71,7 @@ Open `admin.html` in your browser to access the CMS admin panel.
 - `cms-data.js` - Data management functions
 - `admin.js` - Admin panel UI logic
 - `cms-frontend.js` - Frontend rendering logic
-- `First Page.html` - Homepage (dynamically loads categories)
+- `Index.html` - Homepage (dynamically loads categories)
 - Category pages (e.g., `injection-moulding.html`) - Dynamically load products
 
 ### Adding Products to Existing Categories

@@ -138,11 +138,15 @@ const CMSFrontend = {
         }
         
         // Check if it's the homepage
+        const lowerFilename = (filename || '').toLowerCase();
+
         const isHomepage = !filename || 
                           filename === '' || 
-                          filename === 'index.html' || 
+                          lowerFilename === 'index.html' || 
+                          lowerFilename === 'index.htm' ||
                           filename === 'First Page.html' ||
-                          filename.toLowerCase().includes('first') ||
+                          lowerFilename.includes('first') ||
+                          lowerFilename.includes('index') ||
                           (document.getElementById('dynamic-categories') && !document.getElementById('product-grid'));
         
         if (isHomepage) {
